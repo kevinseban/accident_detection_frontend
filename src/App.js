@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Set up socket connection to Flask server
-const socket = io('http://localhost:5000');
+const socket = io('http://192.168.0.102:5000');
 
 // Create dark theme using MUI's theme customization
 const darkTheme = createTheme({
