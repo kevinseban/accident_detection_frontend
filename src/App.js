@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Set up socket connection to Flask server
-const socket = io('http://192.168.0.102:5000');
+const socket = io('http://localhost:5000');
 
 // Create dark theme using MUI's theme customization
 const darkTheme = createTheme({
@@ -55,8 +55,16 @@ function App() {
               {alerts.map((alert, index) => (
                 <ListItem key={index} sx={{ backgroundColor: 'primary.main', mb: 1, borderRadius: 1 }}>
                   <ListItemText
-                    primary={<Typography variant="body1">Severity: {alert.severity}</Typography>}
-                    secondary={<Typography variant="body2">Location: {alert.location} | Timestamp: {alert.timestamp}</Typography>}
+                    primary={
+                      <Typography variant="body1">
+                        {alert.accident} - Severity: {alert.severity}
+                      </Typography>
+                    }
+                    secondary={
+                      <Typography variant="body2">
+                        Timestamp: {alert.timestamp} | GPS: {alert.gps_coord} | Place: {alert.place}
+                      </Typography>
+                    }
                   />
                 </ListItem>
               ))}
